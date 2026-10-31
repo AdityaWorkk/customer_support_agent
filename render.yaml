@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: support-assistant
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: CRON_SECRET
+        generateValue: true
+      - key: MONGODB_URL
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: PAYMENT_PROVIDER
+        value: fake
+      - key: STORAGE_BACKEND
+        value: cloudinary
